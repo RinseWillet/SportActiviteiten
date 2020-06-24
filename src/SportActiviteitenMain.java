@@ -3,6 +3,16 @@ import java.time.LocalDate;
 
 public class SportActiviteitenMain {
 
+
+	public static void main (String[] args) {
+		
+		Beginner rinse = new Beginner("Rinse", 38, 86, 1.89);
+		rinse.addFiets("Kermit", "Race");
+		rinse.addRit(fiets, "Den Haag", 120, 60, trueheuvels, dag, maand, jaar);
+	}
+	
+	
+	
 	/*
 	 * Dit keer stel ik geheel geen functionele eisen vast. Ik zal alleen verzoeken om .... technische eisen.
 
@@ -67,14 +77,48 @@ interface GearGebruik {
 class Beginner extends Persoon {
 	
 		
-	Beginner (String naam, int leeftijd, int gewicht, int lengte){
+	Beginner (String naam, int leeftijd, int gewicht, double lengte){
 		
 	}
 	
 	Beginner (String naam, int leeftijd){
-		gewicht = 70;	 //default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
-		lengte = 1.74;   //default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.gewicht = 70;	 //default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
+		this.lengte = 1.74;   //default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
 		}
+	
+	
+	void addFiets(String naam, String type) {
+		Fiets fiets = new Fiets(naam, type);
+	}
+	
+	void addSchoenen(String naam, String type) {
+		Schoenen schoenen = new Schoenen(naam, type);		
+	}
+	
+	void addZwemkleding(String naam) {
+		Zwemkleding zwemkleding = new Zwemkleding(naam);
+	}
+	
+	void addRit(Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar) {
+		Fietsen rit = new Fietsen(fiets, naam, tijdsduurMinutes, afstand, tegenwind, heuvels, dag, maand, jaar);
+		String gear = fiets.naam;
+	}
+	
+	void addRun(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
+		Hardlopen run = new Hardlopen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
+		String gear = schoenen.naam;
+	}
+	
+	void addSwim(Zwemkleding zwemkleding, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar, boolean buiten) {
+		Zwemmen swim = new Zwemmen(zwemkleding, naam, tijdsduurMinutes, afstand, dag, maand, jaar, buiten);
+		String gear = zwemkleding.naam;
+	}
+	
+	void addWandeling(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
+		Wandelen wandeling = new Wandelen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
+		String gear = schoenen.naam;
+	}
+	
 	
 }
 
@@ -86,9 +130,42 @@ class Amateur extends Persoon {
 	}
 	
 	Amateur (String naam, int leeftijd){
-		gewicht = 70;	 //default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
-		lengte = 1.74;   //default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.gewicht = 70;	 //default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
+		this.lengte = 1.74;   //default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
 		}
+		
+	void addFiets(String naam, String type) {
+		Fiets fiets = new Fiets(naam, type);
+	}
+	
+	void addSchoenen(String naam, String type) {
+		Schoenen schoenen = new Schoenen(naam, type);		
+	}
+	
+	void addZwemkleding(String naam) {
+		Zwemkleding zwemkleding = new Zwemkleding(naam);
+	}
+	
+	void addRit(Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar) {
+		Fietsen rit = new Fietsen(fiets, naam, tijdsduurMinutes, afstand, tegenwind, heuvels, dag, maand, jaar);
+		String gear = fiets.naam;
+	}
+	
+	void addRun(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
+		Hardlopen run = new Hardlopen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
+		String gear = schoenen.naam;
+	}
+	
+	void addSwim(Zwemkleding zwemkleding, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar, boolean buiten) {
+		Zwemmen swim = new Zwemmen(zwemkleding, naam, tijdsduurMinutes, afstand, dag, maand, jaar, buiten);
+		String gear = zwemkleding.naam;
+	}
+	
+	void addWandeling(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
+		Wandelen wandeling = new Wandelen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
+		String gear = schoenen.naam;
+	}
+	
 	
 }
 
@@ -100,9 +177,41 @@ class Prof extends Persoon {
 	}
 	
 	Prof (String naam, int leeftijd){
-		gewicht = 70;	 //default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
-		lengte = 1.74;   //default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.gewicht = 70;	 //default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
+		this.lengte = 1.74;   //default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
 		}
+	
+	void addFiets(String naam, String type) {
+		Fiets fiets = new Fiets(naam, type);
+	}
+	
+	void addSchoenen(String naam, String type) {
+		Schoenen schoenen = new Schoenen(naam, type);		
+	}
+	
+	void addZwemkleding(String naam) {
+		Zwemkleding zwemkleding = new Zwemkleding(naam);
+	}
+	
+	void addRit(Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar) {
+		Fietsen rit = new Fietsen(fiets, naam, tijdsduurMinutes, afstand, tegenwind, heuvels, dag, maand, jaar);
+		String gear = fiets.naam;
+	}
+	
+	void addRun(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
+		Hardlopen run = new Hardlopen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
+		String gear = schoenen.naam;
+	}
+	
+	void addSwim(Zwemkleding zwemkleding, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar, boolean buiten) {
+		Zwemmen swim = new Zwemmen(zwemkleding, naam, tijdsduurMinutes, afstand, dag, maand, jaar, buiten);
+		String gear = zwemkleding.naam;
+	}
+	
+	void addWandeling(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
+		Wandelen wandeling = new Wandelen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
+		String gear = schoenen.naam;
+	}
 	
 }
 
@@ -110,31 +219,60 @@ class Fietsen extends Activiteit {
 	LocalDate datum = LocalDate.of(dag, maand, jaar);
 	boolean tegenwind;
 	boolean heuvels;
+	Fietsen (Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar){
+		datum.of(dag,maand,jaar);
+		Fiets gear=fiets;
+	}
+	
 }
 
 class Hardlopen extends Activiteit {
 	LocalDate datum = LocalDate.of(dag, maand, jaar);
-	
+	Hardlopen(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar){
+		datum.of(dag,maand,jaar);
+		Schoenen gear=schoenen;
+	}
 }
 
 class Wandelen extends Activiteit {
 	LocalDate datum = LocalDate.of(dag, maand, jaar);
+	
+	Wandelen(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar){
+		datum.of(dag,maand,jaar);
+		Schoenen gear=schoenen;
+	}
 }
 
 class Zwemmen extends Activiteit {
+	
 	LocalDate datum = LocalDate.of(dag, maand, jaar);
 	boolean buiten;
+	
+	Zwemmen(Zwemkleding zwemkleding, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar, boolean buiten){
+	datum.of(dag,maand,jaar);
+	this.buiten=buiten;
+	Zwemkleding gear=zwemkleding;
+	}
 }
 
 class Fiets extends Gear {
 	String type;     // bijv mountainbike, racefiets, ligfiets, stadsfiets
-	
+	Fiets (String naam, String type){
+		this.type = type;
+	}
 }
 
 class Schoenen extends Gear {
 	String type; //bijv sport of wandelschoenen
+	Schoenen (String naam, String type){
+		this.type=type;
+	}
 }
 
 class Zwemkleding extends Gear {
 	
+	Zwemkleding (String naam){
+	}	
 }
+	
+
