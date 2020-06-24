@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 
 public class SportActiviteitenMain {
 
@@ -32,10 +34,15 @@ abstract class Persoon {
 	double lengte;
 	}
 
-abstract class Activiteit {	
+abstract class Activiteit {
+	String naam;	
 	int calories;
 	int tijdsduurMinutes;
 	double afstand;
+	int dag;
+	int maand;
+	int jaar;
+	
 }
 
 abstract class Gear {
@@ -99,29 +106,33 @@ class Prof extends Persoon {
 	
 }
 
-class Fietsen extends Activiteit {
+class Fietsen extends Activiteit {	
+	LocalDate datum = LocalDate.of(dag, maand, jaar);
 	boolean tegenwind;
 	boolean heuvels;
 }
 
 class Hardlopen extends Activiteit {
+	LocalDate datum = LocalDate.of(dag, maand, jaar);
 	
 }
 
 class Wandelen extends Activiteit {
-	
+	LocalDate datum = LocalDate.of(dag, maand, jaar);
 }
 
 class Zwemmen extends Activiteit {
-	
+	LocalDate datum = LocalDate.of(dag, maand, jaar);
+	boolean buiten;
 }
 
 class Fiets extends Gear {
+	String type;     // bijv mountainbike, racefiets, ligfiets, stadsfiets
 	
 }
 
 class Schoenen extends Gear {
-
+	String type; //bijv sport of wandelschoenen
 }
 
 class Zwemkleding extends Gear {
