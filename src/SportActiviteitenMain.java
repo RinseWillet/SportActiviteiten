@@ -32,11 +32,29 @@ abstract class Persoon {
 	double lengte;
 	}
 
-abstract class Activiteit {
-	String type;
+abstract class Activiteit {	
 	int calories;
-	int durationMinutes;
-	
+	int tijdsduurMinutes;
+	double afstand;
+}
+
+abstract class Gear {
+	String naam;
+	int activiteitenGebruikt;
+	int totalekms;
+}
+
+interface BMI {
+	public int BMIberekenen(Beginner beginner);	
+	public int BMIberekenen(Amateur amateur);
+	public int BMIberekenen(Prof prof);
+}
+
+interface GearGebruik {
+	public int totaalgebruikFiets(Fiets fiets, Fietsen rit);
+	public int totaalgebruikSchoenen1(Schoenen schoenen, Hardlopen run);
+	public int totaalgebruikSchoenen2(Schoenen schoenen, Wandelen wandeling);
+	public int totaalgebruikZwemmen(Zwemkleding zwemkleding, Zwemmen swim);
 }
 
 class Beginner extends Persoon {
@@ -78,5 +96,34 @@ class Prof extends Persoon {
 		gewicht = 70;	 //default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
 		lengte = 1.74;   //default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
 		}
+	
+}
+
+class Fietsen extends Activiteit {
+	boolean tegenwind;
+	boolean heuvels;
+}
+
+class Hardlopen extends Activiteit {
+	
+}
+
+class Wandelen extends Activiteit {
+	
+}
+
+class Zwemmen extends Activiteit {
+	
+}
+
+class Fiets extends Gear {
+	
+}
+
+class Schoenen extends Gear {
+
+}
+
+class Zwemkleding extends Gear {
 	
 }
