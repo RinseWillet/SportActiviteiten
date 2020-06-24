@@ -1,5 +1,5 @@
 import java.time.LocalDate;
-
+import java.util.ArrayList;
 
 public class SportActiviteitenMain {
 
@@ -8,7 +8,13 @@ public class SportActiviteitenMain {
 		
 		Beginner rinse = new Beginner("Rinse", 38, 86, 1.89);
 		rinse.addFiets("Kermit", "Race");
-		rinse.addRit(fiets, "Den Haag", 120, 60, trueheuvels, dag, maand, jaar);
+		System.out.println(rinse.bikes.get(0).naam);
+		System.out.println(rinse.bikes.get(0).type);
+		rinse.addFiets("Eddy", "Race");
+		System.out.println(rinse.bikes.get(0).naam);
+		System.out.println(rinse.bikes.get(0).type);
+		System.out.println(rinse.bikes.get(1).naam);
+		System.out.println(rinse.bikes.get(1).type);
 	}
 	
 	
@@ -37,6 +43,9 @@ De technische eisen zijn:
 	 */
 }
 
+
+// abstract classes die ten grondslag liggen aan de objecten van de atleten, de sportactiviteiten die ze doen, en de gear waarmee ze dit doen;
+
 abstract class Persoon {
 	String naam;
 	int leeftijd;
@@ -61,6 +70,8 @@ abstract class Gear {
 	int totalekms;
 }
 
+//interfaces voor het basale analyseren van de activiteiten, gear en atleten
+
 interface BMI {
 	public int BMIberekenen(Beginner beginner);	
 	public int BMIberekenen(Amateur amateur);
@@ -74,9 +85,32 @@ interface GearGebruik {
 	public int totaalgebruikZwemmen(Zwemkleding zwemkleding, Zwemmen swim);
 }
 
+
+// vanaf hier de verschillende classes van de typen atleten (Beginner, Amateur, Prof);
+
 class Beginner extends Persoon {
 	
-		
+	//Arraylisten voor de objecten van activiteiten
+	Fietsen rit;
+	Hardlopen run;
+	Zwemmen swim;
+	Wandelen wandeling;
+	ArrayList<Fietsen> ritten = new ArrayList<Fietsen>();
+	ArrayList<Hardlopen> rondjes = new ArrayList<Hardlopen>();
+	ArrayList<Zwemmen> baantjes = new ArrayList<Zwemmen>();
+	ArrayList<Wandelen> hikes = new ArrayList<Wandelen>();
+	
+	// Arraylisten voor de objecten van gear
+	Fiets fiets;
+	Schoenen schoenen;
+	Zwemkleding zwemkleding;
+	ArrayList<Fiets> bikes = new ArrayList<Fiets>();
+	ArrayList<Schoenen> shoes = new ArrayList<Schoenen>();
+	ArrayList<Zwemkleding> swimminggear = new ArrayList<Zwemkleding>();
+	
+	
+	
+	
 	Beginner (String naam, int leeftijd, int gewicht, double lengte){
 		
 	}
@@ -89,34 +123,42 @@ class Beginner extends Persoon {
 	
 	void addFiets(String naam, String type) {
 		Fiets fiets = new Fiets(naam, type);
+		bikes.add(fiets);
+		
 	}
 	
 	void addSchoenen(String naam, String type) {
-		Schoenen schoenen = new Schoenen(naam, type);		
+		Schoenen schoenen = new Schoenen(naam, type);
+		shoes.add(schoenen);
 	}
 	
 	void addZwemkleding(String naam) {
 		Zwemkleding zwemkleding = new Zwemkleding(naam);
+		swimminggear.add(zwemkleding);
 	}
 	
 	void addRit(Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar) {
 		Fietsen rit = new Fietsen(fiets, naam, tijdsduurMinutes, afstand, tegenwind, heuvels, dag, maand, jaar);
 		String gear = fiets.naam;
+		ritten.add(rit);
 	}
 	
 	void addRun(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
 		Hardlopen run = new Hardlopen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
 		String gear = schoenen.naam;
+		rondjes.add(run);
 	}
 	
 	void addSwim(Zwemkleding zwemkleding, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar, boolean buiten) {
 		Zwemmen swim = new Zwemmen(zwemkleding, naam, tijdsduurMinutes, afstand, dag, maand, jaar, buiten);
 		String gear = zwemkleding.naam;
+		baantjes.add(swim);
 	}
 	
 	void addWandeling(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar) {
 		Wandelen wandeling = new Wandelen(schoenen, naam, tijdsduurMinutes, afstand, dag, maand, jaar);
 		String gear = schoenen.naam;
+		hikes.add(wandeling);
 	}
 	
 	
@@ -215,13 +257,24 @@ class Prof extends Persoon {
 	
 }
 
+// de typen activiteiten vervat in inherited objecten
+
 class Fietsen extends Activiteit {	
 	LocalDate datum = LocalDate.of(dag, maand, jaar);
 	boolean tegenwind;
 	boolean heuvels;
 	Fietsen (Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar){
-		datum.of(dag,maand,jaar);
+		
 		Fiets gear=fiets;
+		this.naam=naam;
+		this.calories=calories;
+		this.tijdsduurMinutes=tijdsduurMinutes;
+		this.afstand=afstand;
+		this.dag=dag;
+		this.maand=maand;
+		this.jaar=jaar;
+		datum.of(dag,maand,jaar);
+				
 	}
 	
 }
@@ -255,10 +308,16 @@ class Zwemmen extends Activiteit {
 	}
 }
 
+
+// de sportgear objecten die inherited zijn van de Gear abstract class
+
 class Fiets extends Gear {
 	String type;     // bijv mountainbike, racefiets, ligfiets, stadsfiets
 	Fiets (String naam, String type){
 		this.type = type;
+		this.naam=naam;
+		this.activiteitenGebruikt=activiteitenGebruikt;
+		this.totalekms=totalekms;
 	}
 }
 
@@ -266,12 +325,18 @@ class Schoenen extends Gear {
 	String type; //bijv sport of wandelschoenen
 	Schoenen (String naam, String type){
 		this.type=type;
+		this.naam=naam;
+		this.activiteitenGebruikt=activiteitenGebruikt;
+		this.totalekms=totalekms;
 	}
 }
 
 class Zwemkleding extends Gear {
 	
 	Zwemkleding (String naam){
+		this.naam=naam;
+		this.activiteitenGebruikt=activiteitenGebruikt;
+		this.totalekms=totalekms;
 	}	
 }
 	
