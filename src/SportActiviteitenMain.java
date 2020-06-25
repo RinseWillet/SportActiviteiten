@@ -6,8 +6,27 @@ public class SportActiviteitenMain {
 
 	public static void main (String[] args) {
 		
+		// atleet aanmaken
 		Beginner rinse = new Beginner("Rinse", 38, 86, 1.89);
-		rinse.addFiets("Kermit", "Race");
+		
+		//gear aan atleet toewijzen
+		rinse.addFiets("Eddy", "Race");
+		rinse.addFiets("Kermit", "CycloCross");
+		rinse.addFiets("Red Arrow", "Ligfiets");
+		rinse.addZwemkleding("Zwembroek");
+		rinse.addSchoenen("Nike", "Hardloopschoen");
+		rinse.addSchoenen("Kisten", "Wandelschoen");
+		
+		//activiteiten toewijzen
+		rinse.addRit(rinse.bikes.get(0), "Westland", 120, 59, true, false, 22, 6, 2020);
+		rinse.addRit(rinse.bikes.get(2), "Meijendel", 60, 27, true, true, 12, 2, 2020);
+		
+		rinse.addRun(rinse.shoes.get(0), "Rondje Park", 30, 3, 13, 5, 2020);
+		rinse.addRun(rinse.shoes.get(0), "Strand", 45, 4, 2, 5, 2020);
+		
+		rinse.addWandeling(rinse.shoes.get(1), "Park", 120, 10, 1, 6, 2020);
+		rinse.addWandeling(rinse.shoes.get(1), "Stad", 90, 6, 10, 6, 2020);
+		
 		System.out.println(rinse.bikes.get(0).naam);
 		System.out.println(rinse.bikes.get(0).type);
 		rinse.addFiets("Eddy", "Race");
@@ -15,6 +34,9 @@ public class SportActiviteitenMain {
 		System.out.println(rinse.bikes.get(0).type);
 		System.out.println(rinse.bikes.get(1).naam);
 		System.out.println(rinse.bikes.get(1).type);
+		rinse.addRit(rinse.bikes.get(0), "Westland", 120, 59, true, false, 22, 6, 2020);
+		System.out.println("Naam rit: " + rinse.ritten.get(0).naam + " - afstand: " + rinse.ritten.get(0).afstand + " - op: " + rinse.ritten.get(0).datum + " met gear: " + rinse.ritten.get(0).gear.naam);	
+		System.out.println("Naam rit: " + rinse.ritten.get(1).naam + " - afstand: " + rinse.ritten.get(1).afstand + " - op: " + rinse.ritten.get(1).datum + " met gear: " + rinse.ritten.get(1).gear.naam);	
 	}
 	
 	
@@ -61,6 +83,7 @@ abstract class Activiteit {
 	int dag;
 	int maand;
 	int jaar;
+	LocalDate datum;
 	
 }
 
@@ -137,9 +160,8 @@ class Beginner extends Persoon {
 		swimminggear.add(zwemkleding);
 	}
 	
-	void addRit(Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar) {
+	void addRit(Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar) {		
 		Fietsen rit = new Fietsen(fiets, naam, tijdsduurMinutes, afstand, tegenwind, heuvels, dag, maand, jaar);
-		String gear = fiets.naam;
 		ritten.add(rit);
 	}
 	
@@ -260,12 +282,12 @@ class Prof extends Persoon {
 // de typen activiteiten vervat in inherited objecten
 
 class Fietsen extends Activiteit {	
-	LocalDate datum = LocalDate.of(dag, maand, jaar);
 	boolean tegenwind;
 	boolean heuvels;
+	Fiets gear;
+	
 	Fietsen (Fiets fiets, String naam, int tijdsduurMinutes, double afstand, boolean tegenwind, boolean heuvels, int dag, int maand, int jaar){
-		
-		Fiets gear=fiets;
+		gear=fiets;
 		this.naam=naam;
 		this.calories=calories;
 		this.tijdsduurMinutes=tijdsduurMinutes;
@@ -273,38 +295,63 @@ class Fietsen extends Activiteit {
 		this.dag=dag;
 		this.maand=maand;
 		this.jaar=jaar;
-		datum.of(dag,maand,jaar);
+		this.datum=datum;
+		datum=LocalDate.of(jaar, maand, dag);
 				
 	}
 	
 }
 
 class Hardlopen extends Activiteit {
-	LocalDate datum = LocalDate.of(dag, maand, jaar);
+	Schoenen gear;
+	
 	Hardlopen(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar){
-		datum.of(dag,maand,jaar);
-		Schoenen gear=schoenen;
+		gear=schoenen;
+		this.naam=naam;
+		this.calories=calories;
+		this.tijdsduurMinutes=tijdsduurMinutes;
+		this.afstand=afstand;
+		this.dag=dag;
+		this.maand=maand;
+		this.jaar=jaar;
+		this.datum=datum;
+		datum.of(jaar, maand, dag);
+		
 	}
 }
 
 class Wandelen extends Activiteit {
-	LocalDate datum = LocalDate.of(dag, maand, jaar);
+	Schoenen gear;
 	
 	Wandelen(Schoenen schoenen, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar){
-		datum.of(dag,maand,jaar);
-		Schoenen gear=schoenen;
+		gear=schoenen;
+		this.naam=naam;
+		this.calories=calories;
+		this.tijdsduurMinutes=tijdsduurMinutes;
+		this.afstand=afstand;
+		this.dag=dag;
+		this.maand=maand;
+		this.jaar=jaar;
+		this.datum=datum;
+		datum.of(jaar, maand, dag);
 	}
 }
 
 class Zwemmen extends Activiteit {
-	
-	LocalDate datum = LocalDate.of(dag, maand, jaar);
 	boolean buiten;
+	Zwemkleding gear;
 	
 	Zwemmen(Zwemkleding zwemkleding, String naam, int tijdsduurMinutes, double afstand, int dag, int maand, int jaar, boolean buiten){
-	datum.of(dag,maand,jaar);
-	this.buiten=buiten;
-	Zwemkleding gear=zwemkleding;
+		gear=zwemkleding;
+		this.naam=naam;
+		this.calories=calories;
+		this.tijdsduurMinutes=tijdsduurMinutes;
+		this.afstand=afstand;
+		this.dag=dag;
+		this.maand=maand;
+		this.jaar=jaar;
+		this.datum=datum;
+		datum.of(jaar, maand, dag);
 	}
 }
 
@@ -322,7 +369,7 @@ class Fiets extends Gear {
 }
 
 class Schoenen extends Gear {
-	String type; //bijv sport of wandelschoenen
+	String type;    //bijv sport of wandelschoenen
 	Schoenen (String naam, String type){
 		this.type=type;
 		this.naam=naam;
