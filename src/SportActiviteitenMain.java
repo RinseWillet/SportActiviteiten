@@ -49,11 +49,28 @@ public class SportActiviteitenMain implements BMI, totaleAfstand {
 		//totale km fiets Eddy (0)
 		System.out.println(analyse.fietsGebruik(new totaleAfstand() {}, rinse.bikes.get(0), rinse.ritten ));
 		
-		//totale km fiets Eddy (0)
+		//totale aantal activiteiten
 		
+		System.out.println(analyse.aantalRitten(rinse.ritten));
 		
-		//alle fietsen
+			
+		//draaiuit alle fietsritten
 		rinse.alleActiviteiten();
+		
+		// aantal fietsen
+		
+		System.out.println(analyse.aantalFietsen(rinse.bikes));
+		//draaiuit alle fietsen
+		
+		
+		// hoogste snelheid atleet per activiteiten-reeks
+		System.out.println(analyse.topSpeedFiets(rinse.ritten));
+		
+		
+		// gemiddelde snelheid atleet per activiteiten-reeks
+		System.out.println(analyse.averageSpeedFiets(rinse.ritten));
+		
+		// wegschrijven prestaties atleet naar txt bestand "atleet" (per type activiteit - naam + datum + afstand + tijdsduur + snelheid & per type activiteit gemiddelde en topsnelheid)
 
 	}
 

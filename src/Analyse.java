@@ -17,6 +17,32 @@ public class Analyse implements totaleAfstand {
 			return "lengte: " + lengte + " gewicht: " + gewicht + " BMI: " + BMI + " Status: " + status;
 		}
 		
+// tellen aantal activiteiten per activiteitcategorie
+		
+		//fietsen
+		int aantalRitten (ArrayList<Fietsen> ritten) {
+			int aantal = ritten.size();
+			return aantal;						
+		}
+		
+		//hardlopen
+		int aantalRuns (ArrayList<Hardlopen> runs) {
+			int aantal = runs.size();
+			return aantal;
+		}
+		
+		//wandelen
+		int aantalHikes (ArrayList<Wandelen> hikes) {
+			int aantal = hikes.size();
+			return aantal;
+		}
+		
+		//zwemmen
+		int aantalSwims (ArrayList<Zwemmen> swims) {
+			int aantal = swims.size();
+			return aantal;
+		}
+		
 //Afstanden afgelegd atleet met activiteiten
 		
 		// Afstand atleet afgelegd met fietsen
@@ -27,7 +53,6 @@ public class Analyse implements totaleAfstand {
 				fietstotaal=param.totalDistance(totalfiets.get(counter).afstand, fietstotaal);
 			}
 			return fietstotaal;
-
 		}
 		
 		// Afstand atleet afgelegd met hardlopen
@@ -38,7 +63,6 @@ public class Analyse implements totaleAfstand {
 				hardlopentotaal=param.totalDistance(totalhardlopen.get(counter).afstand, hardlopentotaal);
 			}
 			return hardlopentotaal;
-
 		}
 		
 		// Afstand atleet afgelegd met wandelen
@@ -49,7 +73,6 @@ public class Analyse implements totaleAfstand {
 				wandelentotaal=param.totalDistance(wanderlust.get(counter).afstand, wandelentotaal);
 			}
 			return wandelentotaal;
-
 		}		
 				
 		// Afstand atleet afgelegd met zwemmen
@@ -60,10 +83,9 @@ public class Analyse implements totaleAfstand {
 				zwemmentotaal=param.totalDistance(sinkOrSwim.get(counter).afstand, zwemmentotaal);
 			}
 			return zwemmentotaal;
-
 		}
 
-//Snelheden per activiteit instellen
+//Snelheden per activiteit berekenen
 		
 		//Fietsen in km/u
 		double ritSnelheid(totaleAfstand param, Fietsen rit) {
@@ -104,7 +126,6 @@ public class Analyse implements totaleAfstand {
 				snelheid = analyse.ritSnelheid(new totaleAfstand() {
 				}, ritten.get(counter));
 				ritten.get(counter).snelheid = snelheid;
-
 			}
 		}
 		
@@ -117,7 +138,6 @@ public class Analyse implements totaleAfstand {
 				snelheid = analyse.wandelingSnelheid(new totaleAfstand() {
 				}, wandelingen.get(counter));
 				wandelingen.get(counter).snelheid = snelheid;
-
 			}
 		}
 		
@@ -130,7 +150,6 @@ public class Analyse implements totaleAfstand {
 				snelheid = analyse.rennenSnelheid(new totaleAfstand() {
 				}, running.get(counter));
 				running.get(counter).snelheid = snelheid;
-
 			}
 		}
 		
@@ -144,63 +163,171 @@ public class Analyse implements totaleAfstand {
 				snelheid = analyse.zwemmenSnelheid(new totaleAfstand() {
 				}, swimming.get(counter));
 				swimming.get(counter).snelheid = snelheid;
-
 			}
 		}
 		
+		
+// Gemiddelde snelheid berekenen per activiteitenreeks
+
+		// Fietsen
+		double averageSpeedFiets(ArrayList<Fietsen> ritten) {
+			double totaal = 0;
+			for (int counter = 0; counter < ritten.size(); counter++) {
+				totaal = totaal + ritten.get(counter).snelheid;
+			}
+			totaal = totaal / aantalRitten(ritten);
+			return totaal;
+		}
+
+		// Hardlopen
+		double averageSpeedHardlopen(ArrayList<Hardlopen> runs) {
+			double totaal = 0;
+			for (int counter = 0; counter < runs.size(); counter++) {
+				totaal = totaal + runs.get(counter).snelheid;
+			}
+			totaal = totaal / aantalRuns(runs);
+			return totaal;
+		}
+
+		// Wandelen
+		double averageSpeedWandelen(ArrayList<Wandelen> wandelen) {
+			double totaal = 0;
+			for (int counter = 0; counter < wandelen.size(); counter++) {
+				totaal = totaal + wandelen.get(counter).snelheid;
+			}
+			totaal = totaal / aantalHikes(wandelen);
+			return totaal;
+		}
+
+		// Zwemmen
+		double averageSpeedZwemmen(ArrayList<Zwemmen> swims) {
+			double totaal = 0;
+			for (int counter = 0; counter < swims.size(); counter++) {
+				totaal = totaal + swims.get(counter).snelheid;
+			}
+			totaal = totaal / aantalSwims(swims);
+			return totaal;
+		}	
+		
+// Hoogste snelheid berekenen per activiteitenreeks
+
+		// Fietsen
+		double topSpeedFiets(ArrayList<Fietsen> ritten) {
+			double topsnelheid = 0;
+			for (int counter = 0; counter < ritten.size(); counter++) {
+				if (topsnelheid < ritten.get(counter).snelheid) {
+					topsnelheid = ritten.get(counter).snelheid;
+				}
+			}
+			return topsnelheid;
+		}
+
+		// Hardlopen
+		double topSpeedHardlopen(ArrayList<Hardlopen> runs) {
+			double topsnelheid = 0;
+			for (int counter = 0; counter < runs.size(); counter++) {
+				if (topsnelheid < runs.get(counter).snelheid) {
+					topsnelheid = runs.get(counter).snelheid;
+				}
+			}
+			return topsnelheid;
+		}
+
+		// Wandelen
+		double topSpeedWandelen(ArrayList<Wandelen> wandelen) {
+			double topsnelheid = 0;
+			for (int counter = 0; counter < wandelen.size(); counter++) {
+				if (topsnelheid < wandelen.get(counter).snelheid) {
+					topsnelheid = wandelen.get(counter).snelheid;
+				}
+			}
+			return topsnelheid;
+		}
+
+		// Zwemmen
+		double topSpeedZwemmen(ArrayList<Zwemmen> swims) {
+			double topsnelheid = 0;
+			for (int counter = 0; counter < swims.size(); counter++) {
+				if (topsnelheid < swims.get(counter).snelheid) {
+					topsnelheid = swims.get(counter).snelheid;
+				}
+			}
+			return topsnelheid;
+		}
+		
+//Gear methodes
+		// aantal van gear per categorie per atleet
+
+		// aantal fietsen
+		int aantalFietsen(ArrayList<Fiets> bikes) {
+			int aantal = bikes.size();
+			return aantal;
+		}
+
+		// aantal schoenen
+		int aantalSchoenen(ArrayList<Schoenen> shoes) {
+			int aantal = shoes.size();
+			return aantal;
+		}
+
+		// aantal zwemkleding
+		int aantalZwemkleding(ArrayList<Zwemkleding> swimgear) {
+			int aantal = swimgear.size();
+			return aantal;
+		}
 	
-//Gear
-		
+		// totaalgebruik Gear
+
 		// Totaalgebruik per fiets
-		
+
 		int fietsGebruik(totaleAfstand param, Fiets fiets, ArrayList<Fietsen> totalfiets) {
 			int totaalgebruik = 0;
 			for (int counter = 0; counter < totalfiets.size(); counter++) {
 				if (totalfiets.get(counter).gear == fiets) {
-					totaalgebruik=(int)param.totalDistance(totalfiets.get(counter).afstand, totaalgebruik);
+					totaalgebruik = (int) param.totalDistance(totalfiets.get(counter).afstand, totaalgebruik);
 				}
 			}
 			fiets.totalekms = totaalgebruik;
 			return totaalgebruik;
 		}
-		
+
 		// Totaalgebruik per hardloopschoen
-		
+
 		int hardloopSchoenGebruik(totaleAfstand param, Schoenen schoen, ArrayList<Hardlopen> totalRuns) {
 			int totaalgebruik = 0;
 			for (int counter = 0; counter < totalRuns.size(); counter++) {
 				if (totalRuns.get(counter).gear == schoen) {
-					totaalgebruik=(int)param.totalDistance(totalRuns.get(counter).afstand, totaalgebruik);
+					totaalgebruik = (int) param.totalDistance(totalRuns.get(counter).afstand, totaalgebruik);
 				}
 			}
 			schoen.totalekms = totaalgebruik;
 			return totaalgebruik;
 		}
-	
+
 		// Totaalgebruik per wandelschoen
-		
-				int wandelSchoenGebruik(totaleAfstand param, Schoenen schoen, ArrayList<Wandelen> wandelingen) {
-					int totaalgebruik = 0;
-					for (int counter = 0; counter < wandelingen.size(); counter++) {
-						if (wandelingen.get(counter).gear == schoen) {
-							totaalgebruik=(int)param.totalDistance(wandelingen.get(counter).afstand, totaalgebruik);
-						}
-					}
-					schoen.totalekms = totaalgebruik;
-					return totaalgebruik;
+
+		int wandelSchoenGebruik(totaleAfstand param, Schoenen schoen, ArrayList<Wandelen> wandelingen) {
+			int totaalgebruik = 0;
+			for (int counter = 0; counter < wandelingen.size(); counter++) {
+				if (wandelingen.get(counter).gear == schoen) {
+					totaalgebruik = (int) param.totalDistance(wandelingen.get(counter).afstand, totaalgebruik);
 				}
-				
+			}
+			schoen.totalekms = totaalgebruik;
+			return totaalgebruik;
+		}
+
 		// Totaalgebruik per zwemkledingartikel
-				
-				int zwemkledingGebruik(totaleAfstand param, Zwemkleding zwemkleding, ArrayList<Zwemmen> swims) {
-					int totaalgebruik = 0;
-					for (int counter = 0; counter < swims.size(); counter++) {
-						if (swims.get(counter).gear == zwemkleding) {
-							totaalgebruik=(int)param.totalDistance(swims.get(counter).afstand, totaalgebruik);
-						}
-					}
-					zwemkleding.totalekms = totaalgebruik;
-					return totaalgebruik;
+
+		int zwemkledingGebruik(totaleAfstand param, Zwemkleding zwemkleding, ArrayList<Zwemmen> swims) {
+			int totaalgebruik = 0;
+			for (int counter = 0; counter < swims.size(); counter++) {
+				if (swims.get(counter).gear == zwemkleding) {
+					totaalgebruik = (int) param.totalDistance(swims.get(counter).afstand, totaalgebruik);
 				}
-	
-}
+			}
+			zwemkleding.totalekms = totaalgebruik;
+			return totaalgebruik;
+		}
+
+	}
