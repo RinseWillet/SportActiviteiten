@@ -17,6 +17,19 @@ public class Analyse implements totaleAfstand {
 			return "lengte: " + lengte + " gewicht: " + gewicht + " BMI: " + BMI + " Status: " + status;
 		}
 		
+		String Gezond(BMI bmi, Persoon allrounder) {
+			double BMI = bmi.BMIberekenen(allrounder.lengte, allrounder.gewicht);
+			String status = " ";
+			if (BMI >= 18.5 && BMI <= 25.0) {
+				status = "Gezond";
+			} else if (BMI < 18.5) {
+				status = "Ondergewicht";
+			} else if (BMI > 25.0) {
+				status = "Overgewicht";
+			}
+			return "BMI: " + BMI + " Status: " + status;
+		}
+		
 // tellen aantal activiteiten per activiteitcategorie
 		
 		//fietsen
@@ -224,9 +237,9 @@ public class Analyse implements totaleAfstand {
 
 		// Hardlopen
 		double topSpeedHardlopen(ArrayList<Hardlopen> runs) {
-			double topsnelheid = 0;
+			double topsnelheid = 100;
 			for (int counter = 0; counter < runs.size(); counter++) {
-				if (topsnelheid < runs.get(counter).snelheid) {
+				if (topsnelheid > runs.get(counter).snelheid) {
 					topsnelheid = runs.get(counter).snelheid;
 				}
 			}
@@ -246,9 +259,9 @@ public class Analyse implements totaleAfstand {
 
 		// Zwemmen
 		double topSpeedZwemmen(ArrayList<Zwemmen> swims) {
-			double topsnelheid = 0;
+			double topsnelheid = 100;
 			for (int counter = 0; counter < swims.size(); counter++) {
-				if (topsnelheid < swims.get(counter).snelheid) {
+				if (topsnelheid > swims.get(counter).snelheid) {
 					topsnelheid = swims.get(counter).snelheid;
 				}
 			}
@@ -256,6 +269,7 @@ public class Analyse implements totaleAfstand {
 		}
 		
 //Gear methodes
+		
 		// aantal van gear per categorie per atleet
 
 		// aantal fietsen
@@ -287,8 +301,16 @@ public class Analyse implements totaleAfstand {
 					totaalgebruik = (int) param.totalDistance(totalfiets.get(counter).afstand, totaalgebruik);
 				}
 			}
-			fiets.totalekms = totaalgebruik;
 			return totaalgebruik;
+		}
+
+		// Totaalgebruik fietsen instellen in ArrayList
+		void fietsGebruikInstellen(ArrayList<Fietsen> totalfiets) {
+			Analyse analyse = new Analyse();
+			for (int counter = 0; counter < totalfiets.size(); counter++) {
+				totalfiets.get(counter).gear.totalekms = analyse.fietsGebruik(new totaleAfstand() {
+				}, totalfiets.get(counter).gear, totalfiets);
+			}
 		}
 
 		// Totaalgebruik per hardloopschoen
@@ -300,10 +322,20 @@ public class Analyse implements totaleAfstand {
 					totaalgebruik = (int) param.totalDistance(totalRuns.get(counter).afstand, totaalgebruik);
 				}
 			}
-			schoen.totalekms = totaalgebruik;
+			
 			return totaalgebruik;
 		}
-
+		
+		// Totaalgebruik hardloopschoenen instellen in ArrayList
+		
+		void hardloopschoenGebruikInstellen(ArrayList<Hardlopen> totalruns) {
+			Analyse analyse = new Analyse();
+			for (int counter = 0; counter < totalruns.size(); counter++) {
+				totalruns.get(counter).gear.totalekms = analyse.hardloopSchoenGebruik(new totaleAfstand() {
+				}, totalruns.get(counter).gear, totalruns);
+			}
+		}
+		
 		// Totaalgebruik per wandelschoen
 
 		int wandelSchoenGebruik(totaleAfstand param, Schoenen schoen, ArrayList<Wandelen> wandelingen) {
@@ -313,8 +345,18 @@ public class Analyse implements totaleAfstand {
 					totaalgebruik = (int) param.totalDistance(wandelingen.get(counter).afstand, totaalgebruik);
 				}
 			}
-			schoen.totalekms = totaalgebruik;
+			
 			return totaalgebruik;
+		}
+		
+		// Totaalgebruik wandelschoenen instellen in ArrayList
+		
+		void wandelschoenGebruikInstellen(ArrayList<Wandelen> wandelingen) {
+			Analyse analyse = new Analyse();
+			for (int counter = 0; counter < wandelingen.size(); counter++) {
+				wandelingen.get(counter).gear.totalekms = analyse.wandelSchoenGebruik(new totaleAfstand() {
+				}, wandelingen.get(counter).gear, wandelingen);
+			}
 		}
 
 		// Totaalgebruik per zwemkledingartikel
@@ -326,8 +368,19 @@ public class Analyse implements totaleAfstand {
 					totaalgebruik = (int) param.totalDistance(swims.get(counter).afstand, totaalgebruik);
 				}
 			}
-			zwemkleding.totalekms = totaalgebruik;
+			
 			return totaalgebruik;
 		}
-
+		
+		// Totaalgebruik zwemkleding instellen in ArrayList
+		
+				void zwemkledingGebruikInstellen(ArrayList<Zwemmen> swims) {
+					Analyse analyse = new Analyse();
+					for (int counter = 0; counter < swims.size(); counter++) {
+						swims.get(counter).gear.totalekms = analyse.zwemkledingGebruik(new totaleAfstand() {
+						}, swims.get(counter).gear, swims);
+					}
+				}
 	}
+
+
