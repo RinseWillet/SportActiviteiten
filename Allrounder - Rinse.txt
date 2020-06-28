@@ -1,0 +1,236 @@
+Gegevens Atleet
+================
+naam: Rinse
+lengte: 1.89
+gewicht: 86.0
+BMI: 24.075473810923548 Status: Gezond
+ 
+Fiets Activiteiten
+==================
+naam: Westland - datum : 2020-06-22 - afstand: 59.0 - tijdsduur: 120 - snelheid: 29.5 - tegenwind: true - heuvels: false
+naam: Veluwe - datum : 2020-02-01 - afstand: 25.0 - tijdsduur: 76 - snelheid: 19.736842105263158 - tegenwind: true - heuvels: false
+naam: Katwijk - datum : 2020-04-05 - afstand: 110.0 - tijdsduur: 220 - snelheid: 30.0 - tegenwind: true - heuvels: true
+naam: Meijendel - datum : 2020-02-12 - afstand: 27.0 - tijdsduur: 60 - snelheid: 27.0 - tegenwind: false - heuvels: true
+
+==================
+Gemiddelde snelheid (km/u): 26.559210526315788
+Top snelheid (km/u): 30.0
+ 
+Fietsen in gebruik: 
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 84
+Naam fiets: Kermit - Type: CycloCross - Kilometers gebruikt: 110
+Naam fiets: Red Arrow - Type: Ligfiets - Kilometers gebruikt: 27
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 0
+
+ 
+Hardloop Activiteiten
+==================
+naam: Rondje Park - datum : 2020-05-13 - afstand: 3.0 - tijdsduur: 30 - snelheid: 10.0
+naam: Strand - datum : 2020-05-02 - afstand: 4.0 - tijdsduur: 45 - snelheid: 11.25
+
+==================
+Gemiddelde snelheid (min / km): 10.625
+Top snelheid (min / km): 10.0
+ 
+Wandel Activiteiten
+==================
+naam: Park - datum : 2020-06-01 - afstand: 10.0 - tijdsduur: 120 - snelheid: 5.0
+naam: Stad - datum : 2020-06-10 - afstand: 6.0 - tijdsduur: 90 - snelheid: 4.0
+
+==================
+Gemiddelde snelheid (km/u): 4.5
+Top snelheid (km/u): 5.0
+ 
+Schoenen in gebruik: 
+Naam schoenen: Nike - Type: Hardloopschoen - Kilometers gebruikt: 7
+Naam schoenen: Kisten - Type: Wandelschoen - Kilometers gebruikt: 16
+
+ 
+Zwem Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Zwemkleding in gebruik: 
+Naam item: Zwembroek - Kilometers gebruikt: 0
+
+ 
+Gegevens Atleet
+================
+naam: Rinse
+lengte: 1.89
+gewicht: 86.0
+BMI: 24.075473810923548 Status: Gezond
+ 
+Fiets Activiteiten
+==================
+naam: Westland - datum : 2020-06-22 - afstand: 59.0 - tijdsduur: 120 - snelheid: 29.5 - tegenwind: true - heuvels: false
+naam: Veluwe - datum : 2020-02-01 - afstand: 25.0 - tijdsduur: 76 - snelheid: 19.736842105263158 - tegenwind: true - heuvels: false
+naam: Katwijk - datum : 2020-04-05 - afstand: 110.0 - tijdsduur: 220 - snelheid: 30.0 - tegenwind: true - heuvels: true
+naam: Meijendel - datum : 2020-02-12 - afstand: 27.0 - tijdsduur: 60 - snelheid: 27.0 - tegenwind: false - heuvels: true
+
+==================
+Gemiddelde snelheid (km/u): 26.559210526315788
+Top snelheid (km/u): 30.0
+ 
+Fietsen in gebruik: 
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 84
+Naam fiets: Kermit - Type: CycloCross - Kilometers gebruikt: 110
+Naam fiets: Red Arrow - Type: Ligfiets - Kilometers gebruikt: 27
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 0
+
+ 
+Hardloop Activiteiten
+==================
+naam: Rondje Park - datum : 2020-05-13 - afstand: 3.0 - tijdsduur: 30 - snelheid: 10.0
+naam: Strand - datum : 2020-05-02 - afstand: 4.0 - tijdsduur: 45 - snelheid: 11.25
+
+==================
+Gemiddelde snelheid (min / km): 10.625
+Top snelheid (min / km): 10.0
+ 
+Wandel Activiteiten
+==================
+naam: Park - datum : 2020-06-01 - afstand: 10.0 - tijdsduur: 120 - snelheid: 5.0
+naam: Stad - datum : 2020-06-10 - afstand: 6.0 - tijdsduur: 90 - snelheid: 4.0
+
+==================
+Gemiddelde snelheid (km/u): 4.5
+Top snelheid (km/u): 5.0
+ 
+Schoenen in gebruik: 
+Naam schoenen: Nike - Type: Hardloopschoen - Kilometers gebruikt: 7
+Naam schoenen: Kisten - Type: Wandelschoen - Kilometers gebruikt: 16
+
+ 
+Zwem Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Zwemkleding in gebruik: 
+Naam item: Zwembroek - Kilometers gebruikt: 0
+
+ 
+Gegevens Atleet
+================
+naam: Rinse
+lengte: 1.89
+gewicht: 86.0
+BMI: 24.075473810923548 Status: Gezond
+ 
+Fiets Activiteiten
+==================
+naam: Westland - datum : 2020-06-22 - afstand: 59.0 - tijdsduur: 120 - snelheid: 29.5 - tegenwind: true - heuvels: false
+naam: Veluwe - datum : 2020-02-01 - afstand: 25.0 - tijdsduur: 76 - snelheid: 19.736842105263158 - tegenwind: true - heuvels: false
+naam: Katwijk - datum : 2020-04-05 - afstand: 110.0 - tijdsduur: 220 - snelheid: 30.0 - tegenwind: true - heuvels: true
+naam: Meijendel - datum : 2020-02-12 - afstand: 27.0 - tijdsduur: 60 - snelheid: 27.0 - tegenwind: false - heuvels: true
+
+==================
+Gemiddelde snelheid (km/u): 26.559210526315788
+Top snelheid (km/u): 30.0
+ 
+Fietsen in gebruik: 
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 84
+Naam fiets: Kermit - Type: CycloCross - Kilometers gebruikt: 110
+Naam fiets: Red Arrow - Type: Ligfiets - Kilometers gebruikt: 27
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 0
+
+ 
+Hardloop Activiteiten
+==================
+naam: Rondje Park - datum : 2020-05-13 - afstand: 3.0 - tijdsduur: 30 - snelheid: 10.0
+naam: Strand - datum : 2020-05-02 - afstand: 4.0 - tijdsduur: 45 - snelheid: 11.25
+
+==================
+Gemiddelde snelheid (min / km): 10.625
+Top snelheid (min / km): 10.0
+ 
+Wandel Activiteiten
+==================
+naam: Park - datum : 2020-06-01 - afstand: 10.0 - tijdsduur: 120 - snelheid: 5.0
+naam: Stad - datum : 2020-06-10 - afstand: 6.0 - tijdsduur: 90 - snelheid: 4.0
+
+==================
+Gemiddelde snelheid (km/u): 4.5
+Top snelheid (km/u): 5.0
+ 
+Schoenen in gebruik: 
+Naam schoenen: Nike - Type: Hardloopschoen - Kilometers gebruikt: 7
+Naam schoenen: Kisten - Type: Wandelschoen - Kilometers gebruikt: 16
+
+ 
+Zwem Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Zwemkleding in gebruik: 
+Naam item: Zwembroek - Kilometers gebruikt: 0
+
+ 
+Gegevens Atleet
+================
+naam: Rinse
+lengte: 1.89
+gewicht: 86.0
+BMI: 24.075473810923548 Status: Gezond
+ 
+Fiets Activiteiten
+==================
+naam: Westland - datum : 2020-06-22 - afstand: 59.0 - tijdsduur: 120 - snelheid: 29.5 - tegenwind: true - heuvels: false
+naam: Veluwe - datum : 2020-02-01 - afstand: 25.0 - tijdsduur: 76 - snelheid: 19.736842105263158 - tegenwind: true - heuvels: false
+naam: Katwijk - datum : 2020-04-05 - afstand: 110.0 - tijdsduur: 220 - snelheid: 30.0 - tegenwind: true - heuvels: true
+naam: Meijendel - datum : 2020-02-12 - afstand: 27.0 - tijdsduur: 60 - snelheid: 27.0 - tegenwind: false - heuvels: true
+
+==================
+Gemiddelde snelheid (km/u): 26.559210526315788
+Top snelheid (km/u): 30.0
+ 
+Fietsen in gebruik: 
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 84
+Naam fiets: Kermit - Type: CycloCross - Kilometers gebruikt: 110
+Naam fiets: Red Arrow - Type: Ligfiets - Kilometers gebruikt: 27
+Naam fiets: Eddy - Type: Race - Kilometers gebruikt: 0
+
+ 
+Hardloop Activiteiten
+==================
+naam: Rondje Park - datum : 2020-05-13 - afstand: 3.0 - tijdsduur: 30 - snelheid: 10.0
+naam: Strand - datum : 2020-05-02 - afstand: 4.0 - tijdsduur: 45 - snelheid: 11.25
+
+==================
+Gemiddelde snelheid (min / km): 10.625
+Top snelheid (min / km): 10.0
+ 
+Wandel Activiteiten
+==================
+naam: Park - datum : 2020-06-01 - afstand: 10.0 - tijdsduur: 120 - snelheid: 5.0
+naam: Stad - datum : 2020-06-10 - afstand: 6.0 - tijdsduur: 90 - snelheid: 4.0
+
+==================
+Gemiddelde snelheid (km/u): 4.5
+Top snelheid (km/u): 5.0
+ 
+Schoenen in gebruik: 
+Naam schoenen: Nike - Type: Hardloopschoen - Kilometers gebruikt: 7
+Naam schoenen: Kisten - Type: Wandelschoen - Kilometers gebruikt: 16
+
+ 
+Zwem Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Zwemkleding in gebruik: 
+Naam item: Zwembroek - Kilometers gebruikt: 0
+
+ 
