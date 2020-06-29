@@ -1,0 +1,88 @@
+Gegevens Atleet
+================
+naam: r
+lengte: 1.0
+gewicht: 23.0
+lengte: 1.0 gewicht: 23.0 BMI: 23.0 Status: Gezond
+ 
+Fiets Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (km/u): NaN
+Top snelheid (km/u): 0.0
+ 
+Fietsen in gebruik: 
+
+ 
+Hardloop Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Wandel Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (km/u): NaN
+Top snelheid (km/u): 0.0
+ 
+Schoenen in gebruik: 
+
+ 
+Zwem Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Zwemkleding in gebruik: 
+
+ 
+Gegevens Atleet
+================
+naam: r
+lengte: 1.0
+gewicht: 23.0
+lengte: 1.0 gewicht: 23.0 BMI: 23.0 Status: Gezond
+ 
+Fiets Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (km/u): NaN
+Top snelheid (km/u): 0.0
+ 
+Fietsen in gebruik: 
+
+ 
+Hardloop Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Wandel Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (km/u): NaN
+Top snelheid (km/u): 0.0
+ 
+Schoenen in gebruik: 
+
+ 
+Zwem Activiteiten
+==================
+
+==================
+Gemiddelde snelheid (min / km): NaN
+Top snelheid (min / km): 100.0
+ 
+Zwemkleding in gebruik: 
+
+ 
