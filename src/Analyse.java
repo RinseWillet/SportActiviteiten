@@ -27,7 +27,7 @@ public class Analyse implements totaleAfstand {
 			} else if (BMI > 25.0) {
 				status = "Overgewicht";
 			}
-			return "BMI: " + BMI + " Status: " + status;
+			return "lengte: " + allrounder.lengte + " gewicht: " + allrounder.gewicht + " BMI: " + BMI + " Status: " + status;
 		}
 		
 // tellen aantal activiteiten per activiteitcategorie

@@ -5,11 +5,11 @@ import java.io.PrintWriter;
 public class Uitdraai {
 	// methodes alle typen Atleten
 	// Fietsen
-	String UitdraaiActiviteitenFiets(Allrounder Allrounder) {
+	String UitdraaiActiviteitenFiets(Persoon persoon) {
 		Analyse analyse = new Analyse();
-		analyse.snelheidInstellenFietsen(Allrounder.ritten);
+		analyse.snelheidInstellenFietsen(persoon.ritten);
 		String uitdraai = "";
-		for (Fietsen rit : Allrounder.ritten) {
+		for (Fietsen rit : persoon.ritten) {
 			uitdraai = uitdraai + ("naam: " + rit.naam + " - datum : " + rit.datum + " - afstand: " + rit.afstand
 					+ " - tijdsduur: " + rit.tijdsduurMinutes + " - snelheid: " + rit.snelheid + " - tegenwind: "
 					+ rit.tegenwind + " - heuvels: " + rit.heuvels) + "\n";
@@ -42,11 +42,11 @@ public class Uitdraai {
 	}
 
 	// Hardlopen
-	String UitdraaiActiviteitenHardlopen(Allrounder Allrounder) {
+	String UitdraaiActiviteitenHardlopen(Persoon persoon) {
 		Analyse analyse = new Analyse();
-		analyse.snelheidInstellenHardlopen(Allrounder.rondjes);
+		analyse.snelheidInstellenHardlopen(persoon.rondjes);
 		String uitdraai = "";
-		for (Hardlopen run : Allrounder.rondjes) {
+		for (Hardlopen run : persoon.rondjes) {
 			uitdraai = uitdraai + ("naam: " + run.naam + " - datum : " + run.datum + " - afstand: " + run.afstand
 					+ " - tijdsduur: " + run.tijdsduurMinutes + " - snelheid: " + run.snelheid) + "\n";
 		}
@@ -76,11 +76,11 @@ public class Uitdraai {
 	}
 
 	// Wandelen
-	String UitdraaiActiviteitenWandelen(Allrounder Allrounder) {
+	String UitdraaiActiviteitenWandelen(Persoon persoon) {
 		Analyse analyse = new Analyse();
-		analyse.snelheidInstellenWandelen(Allrounder.hikes);
+		analyse.snelheidInstellenWandelen(persoon.hikes);
 		String uitdraai = "";
-		for (Wandelen walk : Allrounder.hikes) {
+		for (Wandelen walk : persoon.hikes) {
 			uitdraai = uitdraai + ("naam: " + walk.naam + " - datum : " + walk.datum + " - afstand: " + walk.afstand
 					+ " - tijdsduur: " + walk.tijdsduurMinutes + " - snelheid: " + walk.snelheid) + "\n";
 		}
@@ -99,11 +99,11 @@ public class Uitdraai {
 	}
 
 	// Zwemmen
-	String UitdraaiActiviteitenZwemmen(Allrounder Allrounder) {
+	String UitdraaiActiviteitenZwemmen(Persoon persoon) {
 		Analyse analyse = new Analyse();
-		analyse.snelheidInstellenZwemmen(Allrounder.baantjes);
+		analyse.snelheidInstellenZwemmen(persoon.baantjes);
 		String uitdraai = "";
-		for (Zwemmen swim : Allrounder.baantjes) {
+		for (Zwemmen swim : persoon.baantjes) {
 			uitdraai = uitdraai + ("naam: " + swim.naam + " - datum : " + swim.datum + " - afstand: " + swim.afstand
 					+ " - tijdsduur: " + swim.tijdsduurMinutes + " - snelheid: " + swim.snelheid) + "\n";
 		}
@@ -137,11 +137,11 @@ public class Uitdraai {
 	// Uitdraai gear atleet
 
 	// Fietsen
-	String UitdraaiFietsen(Allrounder Allrounder) {
+	String UitdraaiFietsen(Persoon persoon) {
 		Analyse analyse = new Analyse();
-		analyse.fietsGebruikInstellen(Allrounder.ritten);
+		analyse.fietsGebruikInstellen(persoon.ritten);
 		String uitdraai = "";
-		for (Fiets bike : Allrounder.bikes) {
+		for (Fiets bike : persoon.bikes) {
 			uitdraai = uitdraai + ("Naam fiets: " + bike.naam + " - Type: " + bike.type + " - Kilometers gebruikt: "
 					+ bike.totalekms) + "\n";
 		}
@@ -171,12 +171,12 @@ public class Uitdraai {
 	}
 
 	// Schoenen
-	String UitdraaiSchoenen(Allrounder Allrounder) {
+	String UitdraaiSchoenen(Persoon persoon) {
 		Analyse analyse = new Analyse();
-		analyse.hardloopschoenGebruikInstellen(Allrounder.rondjes);
-		analyse.wandelschoenGebruikInstellen(Allrounder.hikes);
+		analyse.hardloopschoenGebruikInstellen(persoon.rondjes);
+		analyse.wandelschoenGebruikInstellen(persoon.hikes);
 		String uitdraai = "";
-		for (Schoenen schoen : Allrounder.shoes) {
+		for (Schoenen schoen : persoon.shoes) {
 			uitdraai = uitdraai + ("Naam schoenen: " + schoen.naam + " - Type: " + schoen.type
 					+ " - Kilometers gebruikt: " + schoen.totalekms) + "\n";
 		}
@@ -220,11 +220,11 @@ public class Uitdraai {
 	}
 
 	// Zwemkleding
-	String UitdraaiZwemkleding(Allrounder Allrounder) {
+	String UitdraaiZwemkleding(Persoon persoon) {
 		Analyse analyse = new Analyse();
-		analyse.zwemkledingGebruikInstellen(Allrounder.baantjes);
+		analyse.zwemkledingGebruikInstellen(persoon.baantjes);
 		String uitdraai = "";
-		for (Zwemkleding blub : Allrounder.swimminggear) {
+		for (Zwemkleding blub : persoon.swimminggear) {
 			uitdraai = uitdraai + ("Naam item: " + blub.naam + " - Kilometers gebruikt: " + blub.totalekms) + "\n";
 		}
 		return uitdraai;
@@ -252,56 +252,56 @@ public class Uitdraai {
 
 	// methode om gegevens naar txt bestand te schrijven
 
-	// Allrounder
-	void UitdraaiGegevensAtleetnaarTXTfile(Allrounder Allrounder) throws IOException {
+	// persoon
+	void UitdraaiGegevensAtleetnaarTXTfile(Persoon persoon) throws IOException {
 		Analyse analyse = new Analyse();
 		Uitdraai uitdraai = new Uitdraai();
-		FileWriter filewriter = new FileWriter("Allrounder - " + Allrounder.naam + ".txt", true);
+		FileWriter filewriter = new FileWriter("persoon - " + persoon.naam + ".txt", true);
 		PrintWriter printWriter = new PrintWriter(filewriter);
 		printWriter.println("Gegevens Atleet");
 		printWriter.println("================");
-		printWriter.println("naam: " + Allrounder.naam);
-		printWriter.println("lengte: " + Allrounder.lengte);
-		printWriter.println("gewicht: " + Allrounder.gewicht);
+		printWriter.println("naam: " + persoon.naam);
+		printWriter.println("lengte: " + persoon.lengte);
+		printWriter.println("gewicht: " + persoon.gewicht);
 		printWriter.println(analyse.Gezond(new BMI() {
-		}, Allrounder));
+		}, persoon));
 		printWriter.println(" ");
 		printWriter.println("Fiets Activiteiten");
 		printWriter.println("==================");
-		printWriter.println(uitdraai.UitdraaiActiviteitenFiets(Allrounder));
+		printWriter.println(uitdraai.UitdraaiActiviteitenFiets(persoon));
 		printWriter.println("==================");
-		printWriter.println("Gemiddelde snelheid (km/u): " + analyse.averageSpeedFiets(Allrounder.ritten));
-		printWriter.println("Top snelheid (km/u): " + analyse.topSpeedFiets(Allrounder.ritten));
+		printWriter.println("Gemiddelde snelheid (km/u): " + analyse.averageSpeedFiets(persoon.ritten));
+		printWriter.println("Top snelheid (km/u): " + analyse.topSpeedFiets(persoon.ritten));
 		printWriter.println(" ");
 		printWriter.println("Fietsen in gebruik: ");
-		printWriter.println(uitdraai.UitdraaiFietsen(Allrounder));
+		printWriter.println(uitdraai.UitdraaiFietsen(persoon));
 		printWriter.println(" ");
 		printWriter.println("Hardloop Activiteiten");
 		printWriter.println("==================");
-		printWriter.println(uitdraai.UitdraaiActiviteitenHardlopen(Allrounder));
+		printWriter.println(uitdraai.UitdraaiActiviteitenHardlopen(persoon));
 		printWriter.println("==================");
-		printWriter.println("Gemiddelde snelheid (min / km): " + analyse.averageSpeedHardlopen(Allrounder.rondjes));
-		printWriter.println("Top snelheid (min / km): " + analyse.topSpeedHardlopen(Allrounder.rondjes));
+		printWriter.println("Gemiddelde snelheid (min / km): " + analyse.averageSpeedHardlopen(persoon.rondjes));
+		printWriter.println("Top snelheid (min / km): " + analyse.topSpeedHardlopen(persoon.rondjes));
 		printWriter.println(" ");
 		printWriter.println("Wandel Activiteiten");
 		printWriter.println("==================");
-		printWriter.println(uitdraai.UitdraaiActiviteitenWandelen(Allrounder));
+		printWriter.println(uitdraai.UitdraaiActiviteitenWandelen(persoon));
 		printWriter.println("==================");
-		printWriter.println("Gemiddelde snelheid (km/u): " + analyse.averageSpeedWandelen(Allrounder.hikes));
-		printWriter.println("Top snelheid (km/u): " + analyse.topSpeedWandelen(Allrounder.hikes));
+		printWriter.println("Gemiddelde snelheid (km/u): " + analyse.averageSpeedWandelen(persoon.hikes));
+		printWriter.println("Top snelheid (km/u): " + analyse.topSpeedWandelen(persoon.hikes));
 		printWriter.println(" ");
 		printWriter.println("Schoenen in gebruik: ");
-		printWriter.println(uitdraai.UitdraaiSchoenen(Allrounder));
+		printWriter.println(uitdraai.UitdraaiSchoenen(persoon));
 		printWriter.println(" ");
 		printWriter.println("Zwem Activiteiten");
 		printWriter.println("==================");
-		printWriter.println(uitdraai.UitdraaiActiviteitenZwemmen(Allrounder));
+		printWriter.println(uitdraai.UitdraaiActiviteitenZwemmen(persoon));
 		printWriter.println("==================");
-		printWriter.println("Gemiddelde snelheid (min / km): " + analyse.averageSpeedZwemmen(Allrounder.baantjes));
-		printWriter.println("Top snelheid (min / km): " + analyse.topSpeedZwemmen(Allrounder.baantjes));
+		printWriter.println("Gemiddelde snelheid (min / km): " + analyse.averageSpeedZwemmen(persoon.baantjes));
+		printWriter.println("Top snelheid (min / km): " + analyse.topSpeedZwemmen(persoon.baantjes));
 		printWriter.println(" ");
 		printWriter.println("Zwemkleding in gebruik: ");
-		printWriter.println(uitdraai.UitdraaiZwemkleding(Allrounder));
+		printWriter.println(uitdraai.UitdraaiZwemkleding(persoon));
 		printWriter.println(" ");
 		printWriter.close();
 	}

@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public abstract class Persoon {
 	String naam;
+	String klasse;
 	int leeftijd;
 	double gewicht;
 	double lengte;
+	
 
 	// Arraylisten voor de objecten van activiteiten
 	Fietsen rit;
@@ -75,12 +77,14 @@ public abstract class Persoon {
 
 
 class Allrounder extends Persoon {
-
+		
+	
 	Allrounder(String naam, int leeftijd, double gewicht, double lengte) {
 		this.naam = naam;
 		this.leeftijd = leeftijd;
 		this.gewicht = gewicht;
 		this.lengte = lengte;
+		this.klasse="Allrounder";
 	}
 
 	Allrounder(String naam, int leeftijd) {
@@ -88,6 +92,7 @@ class Allrounder extends Persoon {
 		this.leeftijd = leeftijd;
 		this.gewicht = 70; // default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
 		this.lengte = 1.74; // default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.klasse="Allrounder";
 	}
 
 	// methodes om datapunten toe te voegen I - Gear
@@ -135,11 +140,14 @@ class Allrounder extends Persoon {
 
 class Wandelaar extends Persoon {
 
+
+	
 	Wandelaar(String naam, int leeftijd, double gewicht, double lengte) {
 		this.naam = naam;
 		this.leeftijd = leeftijd;
 		this.gewicht = gewicht;
 		this.lengte = lengte;
+		this.klasse = "Wandelaar";
 	}
 
 	Wandelaar(String naam, int leeftijd) {
@@ -147,6 +155,7 @@ class Wandelaar extends Persoon {
 		this.leeftijd = leeftijd;
 		this.gewicht = 70; // default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
 		this.lengte = 1.74; // default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.klasse = "Wandelaar";
 	}
 
 	// methodes om datapunten toe te voegen I - Gear
@@ -186,12 +195,13 @@ class Wandelaar extends Persoon {
 }
 
 class Zwemmer extends Persoon {
-
+	
 	Zwemmer(String naam, int leeftijd, double gewicht, double lengte) {
 		this.naam = naam;
 		this.leeftijd = leeftijd;
 		this.gewicht = gewicht;
 		this.lengte = lengte;
+		this.klasse = "Zwemmer";
 	}
 
 	Zwemmer(String naam, int leeftijd) {
@@ -199,6 +209,7 @@ class Zwemmer extends Persoon {
 		this.leeftijd = leeftijd;
 		this.gewicht = 70; // default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
 		this.lengte = 1.74; // default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.klasse = "Zwemmer";
 	}
 
 	// methodes om datapunten toe te voegen I - Gear
@@ -243,6 +254,7 @@ class Triatleet extends Persoon {
 		this.leeftijd = leeftijd;
 		this.gewicht = gewicht;
 		this.lengte = lengte;
+		this.klasse = "Triatleet";
 	}
 
 	Triatleet(String naam, int leeftijd) {
@@ -250,6 +262,7 @@ class Triatleet extends Persoon {
 		this.leeftijd = leeftijd;
 		this.gewicht = 70; // default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
 		this.lengte = 1.74; // default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.klasse = "Triatleet";
 	}
 
 	// methodes om datapunten toe te voegen I - Gear
@@ -294,12 +307,13 @@ class Triatleet extends Persoon {
 }
 
 class Fietser extends Persoon {
-
+	
 	Fietser(String naam, int leeftijd, double gewicht, double lengte) {
 		this.naam = naam;
 		this.leeftijd = leeftijd;
 		this.gewicht = gewicht;
 		this.lengte = lengte;
+		this.klasse = "Fietser";
 	}
 
 	Fietser(String naam, int leeftijd) {
@@ -307,6 +321,7 @@ class Fietser extends Persoon {
 		this.leeftijd = leeftijd;
 		this.gewicht = 70; // default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
 		this.lengte = 1.74; // default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+		this.klasse = "Fietser";
 	}
 
 	void addFiets(String naam, String type) {
@@ -339,16 +354,16 @@ class Fietser extends Persoon {
 	void addWandeling() {
 		System.out.println("Fietsers wandelen niet");
 	}
-
 }
 
 class Renner extends Persoon {
-
+		
 		Renner(String naam, int leeftijd, double gewicht, double lengte) {
 			this.naam = naam;
 			this.leeftijd = leeftijd;
 			this.gewicht = gewicht;
 			this.lengte = lengte;
+			this.klasse = "Hardloper";
 		}
 
 		Renner(String naam, int leeftijd) {
@@ -356,6 +371,7 @@ class Renner extends Persoon {
 			this.leeftijd = leeftijd;
 			this.gewicht = 70; // default gewicht (gemiddelde vrouwen (72 kg) en mannen (85 kg) cf cbs 2018)
 			this.lengte = 1.74; // default lengte (gemiddelde vrouwen (1.67) en mannen (1.81) cf. cbs 2018)
+			this.klasse = "Hardloper";
 		}
 
 		void addFiets() {
