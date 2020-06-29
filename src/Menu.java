@@ -18,7 +18,7 @@ public class Menu {
 			System.out.println(" 6 - Wandelaar");
 			System.out.println(" 7 - terug");
 
-			int input = scan.nextInt();
+			int input = GetalInt();
 
 			if (input == 7) {
 				break;
@@ -32,57 +32,17 @@ public class Menu {
 				String naam = scan.next();
 
 				// leeftijd in int + catch try InputMismatchException e
-				int leeftijd = 0;
-				boolean badInput = true;
-				do {
-					try {
-						System.out.print("leeftijd: ");
-						leeftijd = scan.nextInt();
-						if (leeftijd > 0) {
-							badInput = false;
-						} else
-							badInput = true;
-					} catch (InputMismatchException e) {
-						System.out.println("Graag een heel getal invullen.");
-					}
-					scan.nextLine();
-				} while (badInput);
-				badInput = true;
-
+				System.out.print("leeftijd: ");
+				int leeftijd = GetalInt();
+				
 				// gewicht in double + catch try InputMismatchException e
-				double gewicht = 0.0;
-				do {
-					try {
-						System.out.print("gewicht: ");
-						gewicht = scan.nextDouble();
-						if (gewicht > 0) {
-							badInput = false;
-						} else
-							badInput = true;
-					} catch (InputMismatchException e) {
-						System.out.println("Graag een double getal invullen, met een komma (bijv. 75,4).");
-					}
-					scan.nextLine();
-				} while (badInput);
-				badInput = true;
-
+				System.out.print("gewicht: ");
+				double gewicht = GetalDouble();
+				
 				// lengte in double + catch try InputMismatchException e
-				double lengte = 0.0;
-				do {
-					try {
-						System.out.print("lengte: ");
-						lengte = scan.nextDouble();
-						if (lengte > 0) {
-							badInput = false;
-						} else
-							badInput = true;
-					} catch (InputMismatchException e) {
-						System.out.println("Graag een double getal invullen, met een komma (bijv. 1,89).");
-					}
-					scan.nextLine();
-				} while (badInput);
-				badInput = true;
-
+				System.out.print("lengte: ");
+				double lengte = GetalDouble();
+							
 				if (input == 1 && gewicht != 0.0 && lengte != 0.0) {
 					Allrounder allrounder = new Allrounder(naam, leeftijd, gewicht, lengte);
 					atleten.add(allrounder);
@@ -148,17 +108,17 @@ public class Menu {
 			}
 
 			// loop om atleten aanwezig in ArrayList te tonen
-			System.out.println("Aan welke atleet wilt u gear toevoegen? (x voor terug)");
+			System.out.println("Aan welke atleet wilt u gear toevoegen? (0 voor terug)");
 			for (int i = 0; i < atleten.size(); i++) {
 				System.out.println((i + 1) + " " + atleten.get(i).naam + " - " + atleten.get(i).klasse);
 			}
-			String command1 = scan.next();
-
-			if (command1.equals("x")) {
+			
+			// int input voor break of atleet kiezen
+			int command1 = GetalInt();
+			if (command1 == 0) {
 				break;
 			}
-
-			int atleetindex = (Integer.parseInt(command1)) - 1;
+			int atleetindex = command1 - 1;
 
 			// subsubmenu type gear kiezen
 			System.out.println("Welk type gear wilt u toevoegen:");
@@ -167,7 +127,7 @@ public class Menu {
 			System.out.println(" 3 - Zwemkleding");
 			System.out.println(" 4 - terug");
 
-			int input = scan.nextInt();
+			int input = GetalInt();
 
 			if (input == 4) {
 				break;
@@ -177,19 +137,19 @@ public class Menu {
 			if (input == 1) {
 				System.out.println("Vul hieronder de naam (bijv. Nike Air) en het type in (bijv. Wandelschoenen)");
 				System.out.print("naam: ");
-				String naam = scan.next();
+				String naam = scan.nextLine();
 				System.out.print("type: ");
-				String type = scan.next();
+				String type = scan.nextLine();
 				atleten.get(atleetindex).addSchoenen(naam, type);
 			}
 
 			// subsubsubmenu Fietsen toevoegen
 			if (input == 2) {
 				System.out.println(
-						"Vul hieronder de naam (bijv. Gazelle Champion Mondial) en het type in (bijv. Racefiets)");
-				System.out.print("naam: ");
+						"Vul hieronder de naam (bijv. GazelleChampionMondial (geen spaties) en het type in (bijv. Racefiets)");
+				System.out.println("naam: ");
 				String naam = scan.next();
-				System.out.print("type: ");
+				System.out.println("type: ");			
 				String type = scan.next();
 				atleten.get(atleetindex).addFiets(naam, type);
 			}
@@ -198,7 +158,7 @@ public class Menu {
 			if (input == 3) {
 				System.out.println("Vul hieronder de naam (bijv. Zwembroek of Haaienpak) in");
 				System.out.print("naam: ");
-				String naam = scan.next();
+				String naam = scan.nextLine();
 				atleten.get(atleetindex).addZwemkleding(naam);
 			}
 		}
@@ -216,17 +176,17 @@ public class Menu {
 			}
 
 			// loop om atleten aanwezig in ArrayList te tonen
-			System.out.println("Aan welke atleet wilt u een activiteit toevoegen? (x voor terug)");
+			System.out.println("Aan welke atleet wilt u een activiteit toevoegen? (0 voor terug)");
 			for (int i = 0; i < atleten.size(); i++) {
 				System.out.println((i + 1) + " " + atleten.get(i).naam + " - " + atleten.get(i).klasse);
 			}
-			String command1 = scan.next();
-
-			if (command1.equals("x")) {
+			
+			// int input voor break of atleet kiezen
+			int command1 = GetalInt();
+			if (command1 == 0) {
 				break;
 			}
-
-			int atleetindex = (Integer.parseInt(command1)) - 1;
+			int atleetindex = command1 - 1;
 
 			// als geen van de atleten gear heeft, eerst aanmaken
 			if (atleten.get(atleetindex).bikes.size() < 1 && atleten.get(atleetindex).shoes.size() < 1
@@ -243,7 +203,7 @@ public class Menu {
 			System.out.println(" 4 - Zwemmen");
 			System.out.println(" 5 - terug");
 
-			int input = scan.nextInt();
+			int input = GetalInt();
 
 			if (input == 5) {
 				break;
@@ -261,39 +221,13 @@ public class Menu {
 				String naam = scan.next();
 				
 				// tijdsduur in int + catch try InputMismatchException e
-				int tijdsduur = 0;
-				boolean badInput = true;
-				do {
-					try {
-						System.out.print("tijdsduur: ");
-						tijdsduur = scan.nextInt();
-						if (tijdsduur > 0) {
-							badInput = false;
-						} else
-							badInput = true;
-					} catch (InputMismatchException e) {
-						System.out.println("Graag een heel getal invullen.");
-					}
-					scan.nextLine();
-				} while (badInput);
-				badInput = true;
-				
+				System.out.print("tijdsduur: ");
+				int tijdsduur = GetalInt();
+								
 				// afstand in double + catch try InputMismatchException e
-				double afstand = 0.0;
-				do {
-					try {
-						System.out.print("afstand: ");
-						afstand = scan.nextDouble();
-						if (afstand > 0) {
-							badInput = false;
-						} else
-							badInput = true;
-					} catch (InputMismatchException e) {
-						System.out.println("Graag een double getal invullen, met een komma (bijv. 75,4).");
-					}
-					scan.nextLine();
-				} while (badInput);
-				badInput = true;
+				System.out.print("afstand: ");
+				double afstand = GetalDouble();
+				
 				
 				//boolean tegenwind invullen en converteren van string
 				boolean wind;
@@ -332,27 +266,25 @@ public class Menu {
 					}
 				}
 				
-				
-				
+				// dag in int + catch try InputMismatchException e
 				System.out.print("dag: ");
-				int dag = scan.nextInt();
+				int dag = GetalInt();					
+				
+				// maand in int + catch try InputMismatchException e
 				System.out.print("maand: ");
-				int maand = scan.nextInt();
+				int maand = GetalInt();				
+								
+				// jaar in maand + catch try InputMismatchException e
 				System.out.print("jaar: ");
-				int jaar = scan.nextInt();
+				int jaar = GetalInt();					
+							
 				System.out.println("Kies de fiets waarmee je de rit gereden hebt: ");
 				for (int i = 0; i < atleten.get(atleetindex).bikes.size(); i++) {
 					System.out.println((i + 1) + " " + atleten.get(atleetindex).bikes.get(i).naam + " - "
 							+ atleten.get(atleetindex).bikes.get(i).type);
 				}
 				int gear = (scan.nextInt()) - 1;
-				
-				
-
-				
-
-				
-
+								
 				// toevoegen fietsrit met ingestelde variabelen
 				atleten.get(atleetindex).addRit(atleten.get(atleetindex).bikes.get(gear), naam, tijdsduur, afstand,
 						wind, hills, dag, maand, jaar);
@@ -370,15 +302,15 @@ public class Menu {
 				System.out.print("naam: ");
 				String naam = scan.next();
 				System.out.print("tijdsduur: ");
-				int tijdsduur = scan.nextInt();
+				int tijdsduur = GetalInt();
 				System.out.print("afstand: ");
-				double afstand = scan.nextDouble();
+				double afstand = GetalDouble();
 				System.out.print("dag: ");
-				int dag = scan.nextInt();
+				int dag = GetalInt();
 				System.out.print("maand: ");
-				int maand = scan.nextInt();
+				int maand = GetalInt();
 				System.out.print("jaar: ");
-				int jaar = scan.nextInt();
+				int jaar = GetalInt();
 				System.out.println("Kies de schoenen waarmee je de activiteit gedaan hebt: ");
 				for (int i = 0; i < atleten.get(atleetindex).shoes.size(); i++) {
 					System.out.println((i + 1) + " " + atleten.get(atleetindex).shoes.get(i).naam + " - "
@@ -400,45 +332,54 @@ public class Menu {
 
 			// subsubsubmenu Zwemmen toevoegen
 			if (input == 4) {
+				
 				if (atleten.get(atleetindex).swimminggear.size() < 1) {
 					System.out.println("eerst zwemkleding toevoegen bij gear");
 					break;
 				}
+				
 				System.out.println(
 						"Vul hieronder de naam, tijdsduur (in hele minuten), afstand (in kms), in buitenbad of open water gezwommen (j/n), en datum in integers (dag, maand en jaar) in");
 				System.out.print("naam: ");
 				String naam = scan.next();
 				System.out.print("tijdsduur: ");
-				int tijdsduur = scan.nextInt();
+				int tijdsduur = GetalInt();
 				System.out.print("afstand: ");
-				double afstand = scan.nextDouble();
-				System.out.print("buiten? (j/n): ");
+				double afstand = GetalDouble();
+				
+				
+				//boolean heuvels invullen en converteren van string
+				boolean outside;
+				while (true) {
+					System.out.print("buiten? (j/n): ");
+					String buiten = scan.next();
+					if (buiten.equals("j") || buiten.equals("J") || buiten.equals("ja") || buiten.equals("Ja")
+							|| buiten.equals("JA") || buiten.equals("y") || buiten.equals("Y")) {
+						outside = true;
+						break;
+					} else if (buiten.equals("n") || buiten.equals("N") || buiten.equals("nee") || buiten.equals("Nee")
+							|| buiten.equals("NEE")) {
+						outside = false;
+						break;
+					} else {
+						System.out.println("niet goed ingevuld - opnieuw");						
+					}
+				}
+								
 				String buiten = scan.next();
 				System.out.print("dag: ");
-				int dag = scan.nextInt();
+				int dag = GetalInt();
 				System.out.print("maand: ");
-				int maand = scan.nextInt();
+				int maand = GetalInt();
 				System.out.print("jaar: ");
-				int jaar = scan.nextInt();
+				int jaar = GetalInt();
+				
 				System.out.println("Kies de zwemkleding waarmee je de rit gereden hebt: ");
 				for (int i = 0; i < atleten.get(atleetindex).swimminggear.size(); i++) {
 					System.out.println((i + 1) + " " + atleten.get(atleetindex).swimminggear.get(i).naam);
 				}
-				int gear = (scan.nextInt()) - 1;
-				boolean outside;
-
-				// omzetten naar boolean
-				if (buiten.equals("j") || buiten.equals("J") || buiten.equals("ja") || buiten.equals("Ja")
-						|| buiten.equals("JA") || buiten.equals("y") || buiten.equals("Y")) {
-					outside = true;
-				} else if (buiten.equals("n") || buiten.equals("N") || buiten.equals("nee") || buiten.equals("Nee")
-						|| buiten.equals("NEE")) {
-					outside = false;
-				} else {
-					System.out.println("niet goed ingevuld - opnieuw");
-					break;
-				}
-
+				int gear = (GetalInt()) - 1;
+				
 				// toevoegen zwemmen met ingestelde variabelen
 				atleten.get(atleetindex).addSwim(atleten.get(atleetindex).swimminggear.get(gear), naam, tijdsduur,
 						afstand, dag, maand, jaar, outside);
@@ -459,16 +400,17 @@ public class Menu {
 			}
 
 			// loop om atleten aanwezig in ArrayList te tonen
-			System.out.println("Van welke atleet wilt u de gegevens analyseren (x voor terug) ? ");
+			System.out.println("Van welke atleet wilt u de gegevens analyseren (0 voor terug) ? ");
 			for (int i = 0; i < atleten.size(); i++) {
 				System.out.println((i + 1) + " " + atleten.get(i).naam + " - " + atleten.get(i).klasse);
 			}
-			String command1 = scan.next();
-
-			if (command1.equals("x")) {
+			
+			// int input voor break of atleet kiezen
+			int command1 = GetalInt();
+			if (command1 == 0) {
 				break;
 			}
-			int atleetindex = (Integer.parseInt(command1)) - 1;
+			int atleetindex = command1 - 1;
 
 			// subsubmenu type analyse kiezen
 			System.out.println("Welke analyse wilt u uitvoeren?");
@@ -478,8 +420,7 @@ public class Menu {
 			System.out.println(" 4 - Uitdraai gear en gebruik");
 			System.out.println(" 5 - terug");
 
-			int input = scan.nextInt();
-
+			int input = GetalInt();
 			if (input == 5) {
 				break;
 			}
@@ -602,19 +543,61 @@ public class Menu {
 			}
 
 			// loop om atleten aanwezig in ArrayList te tonen
-			System.out.println("Van welke atleet wilt u de gegevens uitdraaien (x voor terug) ? ");
+			System.out.println("Van welke atleet wilt u de gegevens uitdraaien (0 voor terug) ? ");
 			for (int i = 0; i < atleten.size(); i++) {
 				System.out.println((i + 1) + " " + atleten.get(i).naam + " - " + atleten.get(i).klasse);
 			}
-			String command1 = scan.next();
-
-			if (command1.equals("x")) {
+			
+			// int input voor break of atleet kiezen
+			int command1 = GetalInt();
+			if (command1 == 0) {
 				break;
 			}
-			int atleetindex = (Integer.parseInt(command1)) - 1;
+			int atleetindex = command1 - 1;
 
 			Uitdraai uitdraai = new Uitdraai();
 			uitdraai.UitdraaiGegevensAtleetnaarTXTfile(atleten.get(atleetindex));
 		}
+	}
+	
+	
+	int GetalInt () throws InputMismatchException {
+	// Getal in int + catch try InputMismatchException e
+	boolean badInput=true;
+	Scanner scan = new Scanner(System.in);
+	int getal = 0;				
+	do {
+		try {
+			getal = scan.nextInt();
+			if (getal > 0) {
+				badInput = false;
+			} else
+				badInput = true;
+		} catch (InputMismatchException e) {
+			System.out.println("Graag een heel getal invullen.");
+		}
+		scan.nextLine();
+	} while (badInput);
+	return getal;
+	}
+	
+	double GetalDouble() throws InputMismatchException {
+		// Getal in double + catch try InputMismatchException e
+		boolean badInput = true;
+		Scanner scan = new Scanner(System.in);
+		double getal = 0.0;
+		do {
+			try {
+				getal = scan.nextDouble();
+				if (getal > 0) {
+					badInput = false;
+				} else
+					badInput = true;
+			} catch (InputMismatchException e) {
+				System.out.println("Graag een double getal invullen, met een komma (bijv. 75,4).");
+			}
+			scan.nextLine();
+		} while (badInput);
+		return getal;
 	}
 }
